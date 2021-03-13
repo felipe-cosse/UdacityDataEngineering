@@ -2,7 +2,19 @@
 
 ## Postgres in Docker
 ```shell
-$ docker run -p 5432:5432 -v /tmp/database:/var/lib/postgresql/data -e POSTGRES_PASSWORD=1234 postgres
+$ docker run --name postgres-node -d -p 5432:5432 -v /tmp/database:/var/lib/postgresql/data -e POSTGRES_PASSWORD=1234 postgres
+```
+
+```shell
+$ docker stop postgres-node
+```
+
+```shell
+$ docker start postgres-node
+```
+
+```shell
+$ docker logs postgres-node
 ```
 
 ## Documentação Postgres
