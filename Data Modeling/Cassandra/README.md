@@ -38,4 +38,6 @@ Cassandra-docker README: https://github.com/GoogleCloudPlatform/cassandra-docker
 
 Installing Cassandra: https://cassandra.apache.org/doc/latest/getting_started/installing.html
 
+CQL Data Types: https://docs.datastax.com/en/cql-oss/3.x/cql/cql_reference/cql_data_types_c.html
+
 More documentation can be found here: https://datastax.github.io/python-driver/
