@@ -85,7 +85,7 @@ def process_log_file(cur, filepath):
     user_df = df[["userId", "firstName", "lastName", "gender", "level"]]
 
     # insert user records
-    for i, row in user_df.iterrows():
+    for _, row in user_df.iterrows():
         cur.execute(user_table_insert, row)
 
     # insert songplay records
