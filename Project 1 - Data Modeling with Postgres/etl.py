@@ -78,7 +78,7 @@ def process_log_file(cur, filepath):
     )
     time_df = pd.DataFrame.from_dict(dict(zip(column_labels, time_data)))
 
-    for i, row in time_df.iterrows():
+    for _, row in time_df.iterrows():
         cur.execute(time_table_insert, list(row))
 
     # load user table
@@ -126,7 +126,7 @@ def process_data(cur, conn, filepath, func):
     """
     # get all files matching extension from directory
     all_files = []
-    for root, dirs, files in os.walk(filepath):
+    for root, _, files in os.walk(filepath):
         files = glob.glob(os.path.join(root, "*.json"))
         for f in files:
             all_files.append(os.path.abspath(f))
