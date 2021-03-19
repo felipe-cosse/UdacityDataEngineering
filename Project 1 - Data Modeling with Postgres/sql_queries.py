@@ -1,5 +1,7 @@
 # Contains all your sql queries, and is imported into the last three files above.
 # DROP TABLES
+# Contains all your sql queries, and is imported into the last three files above.
+# DROP TABLES
 
 songplay_table_drop = "DROP TABLE IF EXISTS songplays"
 user_table_drop = "DROP TABLE IF EXISTS users"
@@ -12,12 +14,12 @@ time_table_drop = "DROP TABLE IF EXISTS time"
 songplay_table_create = """
     CREATE TABLE IF NOT EXISTS songplays (
         songplay_id SERIAL PRIMARY KEY,
-        start_time bigint,
-        user_id int,
-        level varchar,
+        start_time bigint NOT NULL,
+        user_id int NOT NULL,
+        level varchar NOT NULL,
         song_id varchar,
         artist_id varchar,
-        session_id int,
+        session_id int NOT NULL,
         location varchar,
         user_agent varchar
     )
@@ -26,27 +28,27 @@ songplay_table_create = """
 user_table_create = """
     CREATE TABLE IF NOT EXISTS users (
         user_id int PRIMARY KEY,
-        first_name varchar,
-        last_name varchar,
+        first_name varchar NOT NULL,
+        last_name varchar NOT NULL,
         gender varchar,
-        level varchar
+        level varchar NOT NULL
     )
 """
 
 song_table_create = """
     CREATE TABLE IF NOT EXISTS songs (
         song_id varchar PRIMARY KEY,
-        title varchar,
-        artist_id varchar,
+        title varchar NOT NULL,
+        artist_id varchar NOT NULL,
         year int,
-        duration numeric
+        duration numeric NOT NULL
     )
 """
 
 artist_table_create = """
     CREATE TABLE IF NOT EXISTS artists (
         artist_id varchar PRIMARY KEY,
-        name varchar,
+        name varchar NOT NULL,
         location varchar,
         latitude varchar,
         longitude varchar
@@ -55,22 +57,21 @@ artist_table_create = """
 
 time_table_create = """
     CREATE TABLE IF NOT EXISTS time (
-        start_time date PRIMARY KEY,
-        hour int,
-        day int,
-        week int,
-        month int,
-        year int,
-        weekday varchar
+        start_time date NOT NULL PRIMARY KEY,
+        hour int NOT NULL,
+        day int NOT NULL,
+        week int NOT NULL,
+        month int NOT NULL,
+        year int NOT NULL,
+        weekday varchar NOT NULL
     )
 """
 
 # INSERT RECORDS
 
 songplay_table_insert = """
-    INSERT INTO songplays (songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
-    VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)
-    ON CONFLICT (songplay_id) DO NOTHING;
+    INSERT INTO songplays (start_time, user_id, level, song_id, artist_id, session_id, location, user_agent)
+    VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
 """
 
 user_table_insert = """
