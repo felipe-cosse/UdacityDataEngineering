@@ -1,0 +1,6 @@
+black
+pre-commit
+psycopg2
+cassandra-driver
+pyodbc
+ipython-sql
