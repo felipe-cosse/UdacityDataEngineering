@@ -4,18 +4,31 @@ from sql_queries import copy_table_queries, insert_table_queries
 
 
 def load_staging_tables(cur, conn):
+    """load_staging_tables - Function to load tables in staging
+
+    Args:
+        cur (cursor): Cursor psycopg2
+        conn (connect): Connect psycopg2
+    """
     for query in copy_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def insert_tables(cur, conn):
+    """insert_tables - Function to insert tables
+
+    Args:
+        cur (cursor): Cursor psycopg2
+        conn (connect): Connect psycopg2
+    """
     for query in insert_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def main():
+    """main function"""
     config = configparser.ConfigParser()
     config.read("dwh.cfg")
 

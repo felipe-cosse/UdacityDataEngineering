@@ -4,18 +4,31 @@ from sql_queries import create_table_queries, drop_table_queries
 
 
 def drop_tables(cur, conn):
+    """drop_tables - Function to drop tables
+
+    Args:
+        cur (cursor): Cursor psycopg2
+        conn (connect): Connect psycopg2
+    """
     for query in drop_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def create_tables(cur, conn):
+    """create_tables - Function to create tables
+
+    Args:
+        cur (cursor): Cursor psycopg2
+        conn (connect): Connect psycopg2
+    """
     for query in create_table_queries:
         cur.execute(query)
         conn.commit()
 
 
 def main():
+    """main function"""
     config = configparser.ConfigParser()
     config.read("dwh.cfg")
 

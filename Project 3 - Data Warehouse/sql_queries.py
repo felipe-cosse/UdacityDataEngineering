@@ -52,8 +52,7 @@ CREATE TABLE IF NOT EXISTS staging_songs(
     num_songs integer,
     song_id varchar,
     title varchar,
-    year integer,
-    PRIMARY KEY (song_id)
+    year integer
 )
 """
 
