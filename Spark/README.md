@@ -32,3 +32,8 @@ For further information see the [Spark SQL, DataFrames and Datasets Guide](https
 
 - https://spark.apache.org/docs/latest/api/sql/index.html
 - https://spark.apache.org/docs/latest/sql-getting-started.html
+- https://spark.apache.org/docs/latest/configuration.html
+
+## Git
+
+https://github.com/udacity/nd027-c3-data-lakes-with-spark
