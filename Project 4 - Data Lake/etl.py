@@ -99,6 +99,13 @@ def process_log_data(spark, input_data, output_data):
     df = df.withColumn("datetime", get_datetime(df.ts))
 
     # extract columns to create time table
+    df = df.withColumn("hour", F.hour("timestamp"))
+    df = df.withColumn("day", F.dayofmonth("timestamp"))
+    df = df.withColumn("month", F.month("timestamp"))
+    df = df.withColumn("year", F.year("timestamp"))
+    df = df.withColumn("week", F.weekofyear("timestamp"))
+    df = df.withColumn("weekday", F.dayofweek("timestamp"))
+
     time_table = df.select(
         "start_time", "hour", "day", "week", "month", "year", "weekday"
     ).distinct()
